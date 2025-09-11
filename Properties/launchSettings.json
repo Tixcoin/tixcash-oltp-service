@@ -1,0 +1,11 @@
+﻿{
+  "profiles": {
+    "tix_OLTPservice": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
