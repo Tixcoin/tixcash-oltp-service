@@ -21,9 +21,6 @@ namespace tix_OLTPservice
         /// </summary>
         public DataUtility()
         {
-            //
-            // TODO: Add constructor logic here
-            //
         }
         /// <summary>
         /// This parametrized constructor
@@ -42,8 +39,8 @@ namespace tix_OLTPservice
             {
                 string status = string.Empty, URL = string.Empty;
 
-                string Token = "1fqAZ2OY6ceO8gRhDgtULGHBXIPZaz6gXdNYozowKpZF5GVvV1TnsK2RFkMs";
-                URL = "https://www.pay2all.in/web-api/get-balance?api_token=" + Token + "";
+                string Token = System.Configuration.ConfigurationManager.AppSettings["Pay2All:ApiToken"];
+                URL = "https://www.pay2all.in/web-api/get-balance?api_token=" + Token;
                 HttpWebRequest request = WebRequest.Create(URL) as HttpWebRequest;
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 WebHeaderCollection header = response.Headers;
