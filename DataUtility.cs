@@ -147,7 +147,6 @@ namespace tix_OLTPservice
             // Check Connection State.
             if (_mCon.State == ConnectionState.Closed)
             {
-                _mCon.Close();
                 _mCon.Open();
 
                 // Initialize Command object.
