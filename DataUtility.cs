@@ -448,27 +448,6 @@ namespace tix_OLTPservice
             return _DataTable;
         }
 
-        //public object GetDataTableStatic(string strSql)
-        //{
-        //    OpenConnection();
-        //    // Set Command object properties.
-        //    _mDataCom.CommandType = CommandType.Text;
-        //    _mDataCom.CommandText = strSql;
-        //    _mDataCom.CommandTimeout = 18000;
-
-        //    // Initialize SqlDataAdapter object.
-        //    _mDa = new SqlDataAdapter();
-        //    // Set the Command object in DataAdapter.
-        //    _mDa.SelectCommand = _mDataCom;
-
-        //    // Initialize DataTable object.
-        //    _DataTable = new DataTable();
-        //    _mDa.Fill(_DataTable);
-        //    CloseConnection();
-        //    DisposeConnection();
-        //    return _DataTable;
-        //}
-
         /// <summary>
         /// This is to read data in Disconnected mode using parameterized SQL.
         /// </summary>
