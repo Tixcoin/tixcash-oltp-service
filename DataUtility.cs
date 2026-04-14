@@ -793,28 +793,6 @@ namespace tix_OLTPservice
             return _DataTable;
 
         }
-        public void SMSSendsms(string mob, string msg)
-        {
-            try
-            {
-
-                //string baseurl = "http://mobicomm.dove-sms.com//submitsms.jsp?user=Easyply&key=a141f94cb7XX&mobile=" + mob + "&message=" + msg + "&senderid=E6666&accusage=1";
-                //WebRequest request = HttpWebRequest.Create(baseurl);
-                //// Get the response back  
-                //HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                //Stream s = (Stream)response.GetResponseStream();
-                //StreamReader readStream = new StreamReader(s);
-                //string dataString = readStream.ReadToEnd();
-                //response.Close();
-                //s.Close();
-                //readStream.Close();
-            }
-
-            catch (Exception ex)
-            {
-                // lblMsg.Text = ex.Message;
-            }
-        }
         #endregion
     }
 }
