@@ -306,7 +306,7 @@ namespace tix_OLTPservice
             }
         }
         /// <summary>
-        /// This method is used to return frist column of the selected record.
+        /// This method is used to return first column of the selected record.
         /// Pass SQL query as text.
         /// Return object so type cast it.
         /// Created Date : 31/10/2005
