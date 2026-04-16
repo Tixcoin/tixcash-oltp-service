@@ -487,7 +487,7 @@ namespace tix_OLTPservice
         {
             OpenConnection();
             // Set Command object properties.
-            _mDataCom.CommandType = CommandType.StoredProcedure; ;
+            _mDataCom.CommandType = CommandType.StoredProcedure;
             _mDataCom.CommandText = strSPName;
             _mDataCom.CommandTimeout = 18000;
             for (int i = 0; i < arrParam.Length; i++)
