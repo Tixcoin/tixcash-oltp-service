@@ -543,7 +543,7 @@ namespace tix_OLTPservice
             _mDataCom.CommandType = CommandType.Text;
             _mDataCom.CommandText = strSql;
             _mDataCom.CommandTimeout = 18000;
-            // Initailize SqlDataAdapter object.
+            // Initialize SqlDataAdapter object.
             _mDa = new SqlDataAdapter();
             // Set the Command object in DataAdapter.
             _mDa.SelectCommand = _mDataCom;
