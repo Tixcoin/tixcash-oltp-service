@@ -44,7 +44,7 @@ namespace tix_OLTPservice
                 HttpWebRequest request = WebRequest.Create(URL) as HttpWebRequest;
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 WebHeaderCollection header = response.Headers;
-                var encoding = ASCIIEncoding.ASCII;
+                var encoding = Encoding.UTF8;
                 using (var reader = new System.IO.StreamReader(response.GetResponseStream(), encoding))
                 {
                     status = reader.ReadToEnd();
