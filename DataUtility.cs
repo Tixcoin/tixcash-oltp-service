@@ -54,9 +54,9 @@ namespace tix_OLTPservice
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                System.Diagnostics.Trace.TraceError("GetPay2AllCurrentBalance failed: {0}", ex.Message);
                 Balance = 0;
             }
             return Balance;
