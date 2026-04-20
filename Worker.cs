@@ -8,7 +8,7 @@ namespace tix_OLTPservice
         private readonly ILogger<Worker> _logger;
         private readonly IConfiguration _configuration;
 
-        static bool _lock = false;
+        private static readonly SemaphoreSlim _executionLock = new SemaphoreSlim(1, 1);
 
         public Worker(ILogger<Worker> logger, IConfiguration configuration)
         {
@@ -18,15 +18,21 @@ namespace tix_OLTPservice
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            if (!_lock)
+            if (!await _executionLock.WaitAsync(0, stoppingToken))
+                return;
+            try
+            {
                 while (!stoppingToken.IsCancellationRequested)
                 {
-                    _lock = true;
                     _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                     await _runBlockInvoker();
                     await Task.Delay(1000, stoppingToken);
-                    _lock = false;
                 }
+            }
+            finally
+            {
+                _executionLock.Release();
+            }
         }
 
         private async Task PrintException(Exception ex)
