@@ -1,4 +1,3 @@
-using Microsoft.Extensions.Options;
 using System.Data;
 
 namespace tix_OLTPservice
