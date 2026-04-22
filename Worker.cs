@@ -34,39 +34,11 @@ namespace tix_OLTPservice
             }
         }
 
-        private async Task PrintException(Exception ex)
+        private Task PrintException(Exception ex)
         {
             if (ex != null)
-            {
-                string path = AppDomain.CurrentDomain.BaseDirectory + "\\Logs";
-                if (!Directory.Exists(path))
-                {
-                    Directory.CreateDirectory(path);
-                }
-                foreach (var f in Directory.GetFiles(path, "*.txt"))
-                {
-                    DateTime fileCreatedDate = File.GetCreationTime(f);
-                    if ((DateTime.Now - fileCreatedDate).TotalDays > 5)
-                        File.Delete(f);
-                }
-                string filepath = AppDomain.CurrentDomain.BaseDirectory + "\\Logs\\ServiceLog_" + DateTime.Now.Date.ToShortDateString().Replace('/', '_') + ".txt";
-                if (!File.Exists(filepath))
-                {
-                    using (StreamWriter sw = File.CreateText(filepath))
-                    {
-                        sw.WriteLine(ex.Message);
-                        sw.WriteLine(ex.StackTrace);
-                    }
-                }
-                else
-                {
-                    using (StreamWriter sw = File.AppendText(filepath))
-                    {
-                        sw.WriteLine(ex.Message);
-                        sw.WriteLine(ex.StackTrace);
-                    }
-                }
-            }
+                _logger.LogError(ex, "Worker encountered an unhandled error");
+            return Task.CompletedTask;
         }
 
         //https://learn.microsoft.com/en-us/aspnet/core/signalr/dotnet-client?view=aspnetcore-8.0&tabs=visual-studio
