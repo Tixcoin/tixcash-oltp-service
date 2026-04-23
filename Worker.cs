@@ -1,5 +1,3 @@
-using System.Data;
-
 namespace tix_OLTPservice
 {
     public class Worker : BackgroundService
