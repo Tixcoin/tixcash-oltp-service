@@ -295,15 +295,7 @@ namespace tix_OLTPservice
             CloseConnection();
             DisposeConnection();
 
-            // Check the result.
-            if (intResult > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return intResult > 0;
         }
         /// <summary>
         /// This method is used to return first column of the selected record.
@@ -353,15 +345,7 @@ namespace tix_OLTPservice
             CloseConnection();
             DisposeConnection();
 
-            // Check the result.
-            if (intResult > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return intResult > 0;
         }
         /// <summary>
         /// This method is used to execute DML using stored procedure.
@@ -386,14 +370,7 @@ namespace tix_OLTPservice
             int intResult = Int32.Parse(_mDataCom.Parameters["@intResult"].Value.ToString());
             CloseConnection();
             DisposeConnection();
-            if (intResult > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return intResult > 0;
 
         }
         /// <summary>
@@ -413,14 +390,7 @@ namespace tix_OLTPservice
             int intResult = Int32.Parse(_mDataCom.Parameters["@intResult"].Value.ToString());
             CloseConnection();
             DisposeConnection();
-            if (intResult > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return intResult > 0;
         }
         /// <summary>
         /// This is to read data in Disconnected mode using SQL as text.
