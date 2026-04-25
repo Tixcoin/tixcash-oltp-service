@@ -134,7 +134,7 @@ namespace tix_OLTPservice
         #region All private methods
         /// <summary>
         ///  1. Initialize Connection object with parameterize constructor.
-        ///  2. Initialize Command object wiht default or no argument constructor.
+        ///  2. Initialize Command object with default or no argument constructor.
         ///  3. Set active connectin with Command object.
         /// </summary>
         private void OpenConnection()
