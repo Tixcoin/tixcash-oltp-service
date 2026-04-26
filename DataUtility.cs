@@ -430,7 +430,7 @@ namespace tix_OLTPservice
             // Set Command object properties.
             _mDataCom.CommandType = CommandType.Text;
             _mDataCom.CommandText = strSql;
-            _mDataCom.CommandTimeout = 0;
+            _mDataCom.CommandTimeout = 18000;
             for (int i = 0; i < arrParam.Length; i++)
             {
                 _mDataCom.Parameters.Add(arrParam[i]);
