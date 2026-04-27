@@ -301,8 +301,6 @@ namespace tix_OLTPservice
         /// This method is used to return first column of the selected record.
         /// Pass SQL query as text.
         /// Return object so type cast it.
-        /// Created Date : 31/10/2005
-        /// Created By   : Dipak Sinha.
         /// </summary>
         /// <param name="strSql">string</param>
         /// <returns>object</returns>
