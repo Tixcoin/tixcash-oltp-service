@@ -1,1 +1,17 @@
+bin/
+obj/
+out/
+.vs/
+.idea/
+*.user
+*.suo
+packages/
+*.nupkg
+publish/
+appsettings.*.json
+!appsettings.json
+.env
+Logs/
+*.log
 .DS_Store
+Thumbs.db
