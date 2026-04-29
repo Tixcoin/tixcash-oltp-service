@@ -28,6 +28,8 @@ namespace tix_OLTPservice
         /// <param name="Connection">string</param>
         public DataUtility(string Connection)
         {
+            if (string.IsNullOrWhiteSpace(Connection))
+                throw new ArgumentNullException(nameof(Connection), "Database connection string must not be empty.");
             this._conStr = Connection;
             this._mCon = new SqlConnection(this._conStr);
         }
