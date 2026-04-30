@@ -42,14 +42,15 @@ namespace tix_OLTPservice
         //https://learn.microsoft.com/en-us/aspnet/core/signalr/dotnet-client?view=aspnetcore-8.0&tabs=visual-studio
         private async Task _runBlockInvoker()
         {
-            var methodInfo = System.Reflection.MethodBase.GetCurrentMethod();
-            var funName = methodInfo.DeclaringType.Name + "." + methodInfo.Name;
+            var sw = System.Diagnostics.Stopwatch.StartNew();
             try
             {
+                const string funName = nameof(Worker) + "." + nameof(_runBlockInvoker);
                 DataUtility du = new DataUtility((string)_configuration["ConnectionString"]);
                 var qry = "EXEC [Explorer_OLTP].[dbo].[sp_ProcessTxnReceipts] ";
                 qry = "BEGIN TRANSACTION \"" + funName + "\" BEGIN TRY " + qry + " COMMIT TRANSACTION \"" + funName + "\" END TRY BEGIN CATCH ROLLBACK TRANSACTION \"" + funName + "\" END CATCH ";
                 du.ExecuteSql(qry);
+                _logger.LogDebug("Block invoker completed in {Elapsed}ms", sw.ElapsedMilliseconds);
             }
             catch (Exception ex)
             {
